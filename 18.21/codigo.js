@@ -4,34 +4,44 @@ function validateField(id, value) {
     alert("Nombre es obligatorio");
     return false;
   }
-  if (id === "registro_apellido" && value.trim() === "") {
+  else if (id === "registro_apellido" && value.trim() === "") {
     alert("Apellido es obligatorio");
     return false;
   }
-  if (id === "registro_email" && !isValidEmail(value)) {
+  else if (id === "registro_email" && !emailValido(value)) {
     alert("Email no es válido");
     return false;
   }
-  if (id === "registro_password" && !isValidPassword(value)) {
+  else if (id === "registro_password" && !contrasenaValida(value)) {
     alert("Password no cumple los requisitos");
     return false;
   }
+  else if(id ==="registro_comentarios" && !comentarioValido(value)){
+    alert("El comentario no debe exceder los 50 caracteres");
+    return false;
+  }
+
   return true;
 }
 
-function isValidEmail(email) {
+function emailValido(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
 
-function isValidPassword(password) {
-  if (/[a-z]/.test(password) && /[A-Z]/.test(password) && /\d/.test(password)) {
+function contrasenaValida(contrasena) {
+  if (/[a-z]/.test(contrasena) && /[A-Z]/.test(contrasena) && /\d/.test(contrasena)) {
     return true;
   }
   return false;
 }
 
-function validateForm() {
+function comentarioValido(comentario){
+  console.log(comentario.length)
+  return comentario.length < 50
+}
+
+function validarFormulario() {
   console.log("validate form");
   const condicionesCheckbox = document.getElementById("registro_condiciones");
   if (!condicionesCheckbox.checked) {
@@ -58,4 +68,4 @@ for (let i = 0; i < inputs.length; i++) {
     validateField(inputs[i].id, inputs[i].value)
   );
 }
-form.addEventListener("submit", () => validateForm());
+form.addEventListener("submit", () => validarFormulario());
