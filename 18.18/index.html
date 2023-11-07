@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ejercicio 18 - Información sobre eventos</title>
+
+    <style type="text/css">
+        body {font-family: arial, helvetica;}
+        .box {width:160px; height:160px; border:thin solid silver; padding:.5em; float: left; margin-right: 15px;}
+        .box h1 {margin: 0;}
+    </style>
+</head>
+
+<body onmousemove="mostrar_posicion(event);">
+    <div id="raton" class="box">
+        <h1>Ratón</h1>
+        <div>
+			<p>Navegador: <span id="posicion_navegador"></span></p>
+			<p>Página: <span id="posicion_pagina"></span></p>
+		</div>
+    </div>
+    <div id="teclado" class="box">
+        <h1>Teclado</h1>
+        <div>
+            <p>Caracter: <span id="caracter_pulsado"></span></p>
+            <p>codigo: <span id="codigo_caracter"></span></p>
+        </div>
+    </div>
+    <script src="codigo.js"></script>
+
+</body>
+
+</html>
